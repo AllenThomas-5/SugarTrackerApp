@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
+
+import SugarMonthList from './compnents/SugarMonthList'
+import SugarMonth from "./compnents/chartlayout/SugarMonth";
+import SugarChart from './compnents/SugarChart'
+import SugarMain from './compnents/SugarMain'
+import SugarAddForm from './compnents/forms/SugarAddForm'
+import SugarEditForm from './compnents/forms/SugarEditFrom'
+import SugarDeleteForm from './compnents/forms/SugarDeleteForm'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Switch>
+        <Route exact path="/" component={SugarMain} />
+        <Route path="/month" component={SugarMonthList} />
+        <Route path="/singlemonth" component={SugarMonth} />
+        <Route path="/chart" component={SugarChart} />
+        <Route path="/addnewsugar" component={SugarAddForm} />
+        <Route path="/editsugar" component={SugarEditForm} />
+        <Route path="/deletesugar" component={SugarDeleteForm} />
+     </Switch>
+    </>
   );
 }
 
